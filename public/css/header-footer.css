@@ -1,0 +1,262 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/* begin header */
+.navbar{
+    width: 100%;
+    z-index: 5;
+}
+.navbarToggler {
+    color: var(--orange);
+    border: none;
+    background: transparent;
+}
+.navIcons i{
+    color: var(--orange);
+    font-size: 1.2rem;
+}
+
+#cartCounter{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    line-height: 1rem;
+}
+
+.navSearch-button{
+    background-color: var(--orange);
+}
+.navSearch-button i{
+    color: var(--black);
+    font-size: 1.2rem;
+}
+.navUl li{
+    padding:0 20px;
+}
+.navUl a {
+    text-decoration:none;
+    color:white;
+}
+.navUl a:hover{
+    color: var(--orange);
+    -webkit-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+}
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--orange);
+    -webkit-transform-origin: bottom left;
+    -ms-transform-origin: bottom left;
+    transform-origin: bottom left;
+    -webkit-transition: -webkit-transform 0.25s ease-out;
+    transition: -webkit-transform 0.25s ease-out;
+    -o-transition: transform 0.25s ease-out;
+    transition: transform 0.25s ease-out;
+    transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: bottom left;
+    -ms-transform-origin: bottom left;
+    transform-origin: bottom left;
+}
+/* end header */
+/*begin offcanvas*/
+#offcanvasNavbar img{
+    height: 50px;
+}
+.closeOffcanvas {
+    background: var(--black);
+    color: white;
+    border:none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    -webkit-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+    z-index: 20;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+}
+.closeOffcanvas:hover {
+    background: var(--orange);
+}
+
+#offcanvasSearch-button{
+    background-color: var(--orange);
+}
+#offcanvasSearch input{
+    border: 1px solid var(--black);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+#offcanvasSearch-button i{
+    color: var(--black);
+    font-size: 1rem;
+}
+#offcanvasNavbar ul li{
+    padding: 0 10px;
+}
+#offcanvasNavbar ul li:hover{
+    color: var(--orange);
+    background: var(--black);
+}
+/*end offcanvas*/
+
+/*begin footer*/
+footer{
+    background: #232323;
+}
+
+.accordionFooter .accordion-button,
+.accordionFooter .accordion-item
+{
+    background: none !important;
+    color: white !important;
+    font-family: popr, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+.accordionFooter .accordion-button{
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 13px !important;
+    line-height: 22px !important;
+    font-weight: 700 !important;
+}
+.accordion-button:focus{
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.accordion{
+    --bs-accordion-border-color: none !important;
+}
+.accordion-body{
+    padding-left: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.accordionSm .accordion-button:after{ /*make arrow white*/
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+.accordion-item li{
+    padding: 5px 0;
+}
+.accordion-item a {
+    text-decoration:none;
+    color:white;
+}
+
+.accordionMd .accordion-button:after
+{
+    background: none !important;
+}
+
+.accordionMd .accordion-button:hover
+{
+    cursor: default !important;
+}
+
+
+.accordion-item a:hover {
+    color: var(--orange);
+    -webkit-transition: all .25s ease-out;
+    -o-transition: all .25s ease-out;
+    transition: all .25s ease-out;
+}
+#footerRow1 p{
+    font-family:popr, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+}
+#footerRow2 p{
+    font-family:popr, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #969696;
+}
+#socials li {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background:white;
+    text-decoration: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: var(--black);
+}
+#socials a {
+    text-decoration: none;
+    margin: 0 10px 0 0;
+}
+#socials li:hover{
+    color: white;
+}
+#facebook li:hover {
+    background-color: #3B5998;
+}
+#twitter li:hover {
+    background-color: #55ACEE;
+}
+#instagram li:hover{
+    background:-o-linear-gradient(45deg, #FFDC80 0%,#FCAF45 11%,#F77737 22%,#F56040 33%,#FD1D1D 44%,#E1306C 55%,#C13584 66%,#833AB4 77%,#5B51D8 88%,#405DE6 99%);
+    background:linear-gradient(45deg, #FFDC80 0%,#FCAF45 11%,#F77737 22%,#F56040 33%,#FD1D1D 44%,#E1306C 55%,#C13584 66%,#833AB4 77%,#5B51D8 88%,#405DE6 99%)
+}
+#youtube li:hover{
+    background-color: #FF0000;
+}
+#tiktok li:hover{
+    background-color: #000;
+}
+#discord li:hover{
+    background-color:#7289DA;
+}
+#reddit li:hover{
+    background-color:#FF5700;
+}
+#subscribebtn{
+    background: var(--orange);
+    font-weight: 600;
+    font-size: 16px;
+}
+#subscribebtn:hover{
+    background: var(--green);
+}
+#newsletter{
+    padding: 8px 20px 8px 20px;
+}
+/*end footer*/

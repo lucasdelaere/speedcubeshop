@@ -1,0 +1,232 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+h2 {
+    font-weight: 400;
+    font-size: 18px;
+}
+
+label{
+    font-weight: 400;
+    font-size: 14px;
+}
+label>img{
+    height: 24px;
+}
+.bi-credit-card{
+    font-size: 5rem;
+}
+
+/*begin accordion*/
+.accordionCheckout .accordion-item,
+.accordionCheckout .accordion-button{
+    color: black !important;
+    background: rgb(250, 250, 250) !important;
+    font-family: popr, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+.accordionCheckout .accordion-button{
+    padding: 20px 20vw !important;
+    font-size: 14px !important;
+    line-height: 22px !important;
+    font-weight: 400 !important;
+}
+.accordionCheckout .accordion-body{
+    padding: 20px 20vw !important;
+}
+
+.accordionCheckout .accordion-button:after{
+    margin-left: 5px !important;
+}
+.accordionCheckout .accordion-button:after {
+    background-size: 0.8rem !important;
+    height: 0.8rem !important;
+    width: 0.8rem !important;
+}
+.accordionCheckout .accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon) !important;
+}
+.bi-cart2{
+    font-size: 1.8rem;
+}
+#totalPrice {
+    right: 19vw;
+}
+.thumbnail{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 1.2rem;
+    line-height: 1.2rem;
+}
+/*end accordion*/
+
+/*begin progress bar*/
+.progress-bar{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    bottom: 1px;
+    left: 1px;
+    margin: 50px 0 !important;
+    padding: 0;
+    -webkit-margin-before: 1em;
+    margin-block-start: 1em;
+    -webkit-margin-after: 1em;
+    margin-block-end: 1em;
+    -webkit-margin-start: 0;
+    margin-inline-start: 0;
+    -webkit-margin-end: 0;
+    margin-inline-end: 0;
+    -webkit-padding-start: 10px;
+    padding-inline-start: 10px;
+}
+.progress-bar:before {
+    position: absolute;
+    content: "";
+    width: 90%;
+    left: 50%;
+    top: 20px;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    height: 5px;
+    background: rgb(152,152,152);
+}
+.progress-item{
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+    color: grey;
+    font-size: .8rem;
+    z-index: 5;
+}
+.progress-item-current{
+    color: var(--black);
+    font-weight: 700;
+}
+.progress-item a,
+.progress-item span{
+    text-transform: uppercase;
+    position: relative;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    display: block;
+    padding-top: 60px;
+    color: inherit;
+    text-decoration: none;
+    -webkit-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+.progress-item a:after,
+.progress-item span:after{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: 4px solid currentcolor;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: currentcolor;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 40px;
+    background-color: white;
+}
+.progress-item.progress-item-current a:after,
+.progress-item.progress-item-current span:after{
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+}
+.progress-item:nth-child(2) a:after,
+.progress-item:nth-child(2) span:after{
+    content: "2";
+}
+.progress-item:nth-child(3) a:after,
+.progress-item:nth-child(3) span:after{
+    content: "3";
+}
+.progress-item:nth-child(4) a:after,
+.progress-item:nth-child(4) span:after{
+    content: "4";
+}
+.progress-item.progress-item-completed a:after,
+.progress-item.progress-item-completed span:after{
+    background-image: url("../images/checkout/check-solid.svg");
+    background-position: center center;
+    background-repeat: no-repeat no-repeat;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: #fff;
+    background-size: 60%;
+    content: "";
+}
+@media (max-width: 750px) {
+    .progress-item{
+        margin: 0;
+    }
+    .progress-item a,
+    .progress-item span{
+        font-size: 8px;
+        min-width: 30px;
+    }
+    .progress-item a:after,
+    .progress-item span:after{
+        border-width: 3px;
+    }
+}
+@media (max-width: 999px) {
+    .progress-bar{
+        padding-bottom: 1.5em;
+    }
+}
+@media (max-width: 576px) {
+    .accordionCheckout .accordion-button,
+    .accordionCheckout .accordion-body{
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+    #totalPrice{
+        right: 12px !important;
+    }
+}
+/*end progress bar*/

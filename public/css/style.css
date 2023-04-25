@@ -1,0 +1,350 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+html{
+    scroll-behavior:smooth;
+}
+/**margin en paddings**/
+.m-1{
+    margin:16px;
+}
+.m-2{
+    margin:20px;
+}
+.m-3{
+    margin:24px;
+}
+.m-4{
+    margin:40px;
+}
+.m-5{
+    margin:48px;
+}
+.p-1{
+    padding:16px;
+}
+.p-2{
+    padding:20px;
+}
+.p-3{
+    padding:24px;
+}
+.p-4{
+    padding:40px;
+}
+.p-5{
+    padding:48px;
+}
+.w-5{
+    width:5%;
+}
+.w-10{
+    width:10%;
+}
+.w-20{
+    width:20%;
+}
+.w-30{
+    width:30%;
+}
+.w-50{
+    width:50%;
+}
+.w-60{
+    width:60%;
+}
+.w-70{
+    width:70%;
+}
+.w-80{
+    width:80%;
+}
+.w-100{
+    width:100%;
+}
+.fw100{
+    font-weight:100;
+}
+.fw200{
+    font-weight:200;
+}
+.fw300{
+    font-weight:300;
+}
+.fw400{
+    font-weight:400;
+}
+.fw500{
+    font-weight:500;
+}
+.fw600{
+    font-weight:600;
+}
+.fw700{
+    font-weight:700;
+}
+.fw800{
+    font-weight:800;
+}
+.fw900{
+    font-weight:900;
+}
+.fs10{
+    font-size: 10px;
+}
+.fs12{
+    font-size: 12px;
+}
+.fs13{
+    font-size: 13px;
+}
+.fs14{
+    font-size: 14px;
+}
+.fs16{
+    font-size: 16px;
+}
+.fs18{
+    font-size: 18px;
+}
+.fs20{
+    font-size: 20px;
+}
+.fs22{
+    font-size: 22px;
+}
+.fs24{
+    font-size: 24px;
+}
+.upper{
+    text-transform: uppercase; /*zet om naar hoofdletters*/
+}
+.lower{
+    text-transform: lowercase; /*zet om naar kleine letters*/
+}
+.capital{
+    text-transform: capitalize; /* eerste letter naar hoofdletter */
+}
+.text-decoration-none{
+
+    color: black;
+}
+.text-decoration-none:hover{
+
+}
+.list-style-none{
+    list-style:none;
+}
+.text-mixedcase{
+    text-transform: none;
+}
+/*--------------------------------------------------------------------*/
+/* eigen css */
+/* begin algemene classes */
+
+/*colors*/
+:root{
+    --orange:#f97803;
+    --green:#379606;
+    --black:#181818;
+    --yellow:#FFD900;
+    --blue: #0693E3;
+}
+.orange{
+    color:var(--orange);
+}
+.bg-orange{
+    background-color:var(--orange);
+}
+.green{
+    color:var(--green)
+}
+.yellow{
+    color:var(--yellow)
+}
+.bg-yellow{
+    background-color:var(--yellow);
+}
+.bg-green{
+    background-color:var(--green)
+}
+.black{
+    color:var(--black);
+}
+.bg-black{
+    background-color:var(--black);
+}
+.blue{
+    color:var(--blue);
+}
+.bg-blue{
+    background-color:var(--blue);
+}
+
+
+
+/*fonts*/
+@font-face {
+    font-family: popr;
+    src: url("../webfonts/Poppins-Regular.ttf");
+}
+@font-face {
+    font-family: popb;
+    src: url("../webfonts/Poppins-Bold.ttf");
+}
+@font-face {
+    font-family: popeb;
+    src: url("../webfonts/Poppins-ExtraBold.ttf");
+}
+.popr{
+    font-family:popr, sans-serif;
+}
+.popb{
+    font-family:popb, sans-serif
+}
+.popeb{
+    font-family:popeb, sans-serif
+}
+/*buttons*/
+.btn-green{
+    font-family:popr, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color:white;
+    background: var(--green);
+    padding: 10px 10px;
+    border:none;
+}
+.btn-green:hover{
+    background:#2b8000; /*darker green*/
+    cursor:pointer;
+    color:white;
+    -webkit-transition: background-color 0.1s ease;
+    -o-transition: background-color 0.1s ease;
+    transition: background-color 0.1s ease;
+}
+.btn-black{
+    font-family:popr, sans-serif;
+    font-size: 13px;
+    font-weight:700;
+    color:white;
+    background: var(--black);
+    padding: 10px 10px;
+    border:none;
+}
+.btn-black:hover{
+    color: white;
+    background:var(--green);
+    cursor:pointer;
+    -webkit-transition: background-color 0.1s ease;
+    -o-transition: background-color 0.1s ease;
+    transition: background-color 0.1s ease;
+}
+.btn-orange{
+    font-family:popr, sans-serif;
+    font-size: 16px;
+    font-weight:700;
+    color:white;
+    background: transparent;
+    padding: 10px 20px 5px 20px;
+    border:none;
+    border-radius: 10px;
+}
+.btn-orange:hover{
+    color:var(--orange);
+    cursor:pointer;
+}
+.p-style{
+    font-family:popr, sans-serif;
+    font-size:14px;
+    color:var(--black);
+    font-weight:400;
+}
+.path-style{
+    font-size: 12px;
+    color: #999999;
+    font-weight: 400;
+}
+.card{
+    border: 1px solid transparent;
+}
+.card:hover{
+    -webkit-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    border: 1px solid rgba(0, 0, 0, .15);
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+ul {
+    list-style-type:none;
+}
+h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+}
+input[type=radio]:hover,
+input[type=radio] + label:hover{
+    cursor: pointer;
+}
+
+/*animations*/
+@-webkit-keyframes jumpInfinite {
+    0% {
+        margin-bottom: 0;
+    }
+    50% {
+        margin-bottom: 10px;
+    }
+    100% {
+        margin-bottom: 0;
+    }
+}
+@keyframes jumpInfinite {
+    0% {
+        margin-bottom: 0;
+    }
+    50% {
+        margin-bottom: 10px;
+    }
+    100% {
+        margin-bottom: 0;
+    }
+}
+
+/*slick dots changes*/
+.slick-dots li button{
+    width: .6rem;
+    height: .6rem;
+    background-color: dimgrey;
+    border-radius: 100%;
+    opacity: 1;
+}
+.slick-dots li button:before{
+    width: .6rem;
+    height: .6rem;
+    background-color: dimgrey;
+    border-radius: 50%;
+    opacity: 1;
+    border: 1px solid dimgrey;
+    color: transparent;
+}
+.slick-dots li.slick-active button{
+    background-color: white;
+    color:white;
+}
+.slick-dots li.slick-active button:before{
+    background-color: white;
+    color:transparent;
+}
+/* einde algemene classes */
+/*--------------------------------------------------------------------*/
+
+
+
+

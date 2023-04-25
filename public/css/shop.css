@@ -1,0 +1,147 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/*begin optionsBar*/
+.path-style{
+    font-size: 12px;
+    color: #999999;
+    font-weight: 400;
+}
+
+h1{
+    font-size: 20px;
+}
+
+.optionsBar-text{
+    font-family:popr, sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+#sortBy, #itemsPerPage{
+    font-size: 12px;
+}
+.bi-filter{
+    font-size: 1.6rem;
+}
+.bi-filter:hover{
+    cursor: pointer;
+}
+#refineBy:hover{
+    cursor:pointer;
+}
+/*end optionsBar*/
+
+/*begin offcanvasFilter*/
+.offcanvasHeader{
+    font-weight: 700;
+    font-size: 14px;
+    color: black !important;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.5) !important;
+    padding-bottom: 10px !important;
+}
+.offcanvasHeader:after{
+    font-weight: 700;
+    font-size: 14px;
+    color: black !important;
+}
+.offcanvasHeader:focus{
+    border-bottom: 1px solid rgba(211, 211, 211, 0.5) !important;
+}
+.offcanvasText{
+    font-weight: 400;
+    font-size: 12px;
+}
+.noUi-connect {
+    background: var(--green) !important;
+}
+.noUi-handle:hover {
+    cursor: -webkit-grab;
+    cursor: grab;
+    background: grey;
+}
+.noUi-handle:active{
+    cursor:-webkit-grabbing;
+    cursor:grabbing;
+    background: grey;
+}
+.accordionShop .accordion-item,
+.accordionShop .accordion-button{
+    color: black !important;
+    background: none !important;
+    font-family: popr, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+.accordionShop .accordion-button{
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 13px !important;
+    line-height: 22px !important;
+    font-weight: 700 !important;
+
+}
+
+.accordionShop .accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon) !important;
+}
+/*end offcanvasFilter*/
+
+/*begin sectionProducts*/
+.productStar{
+    margin: 20px 4px;
+    color:var(--yellow);
+    font-size:.6rem;
+}
+.addWishlist{
+    color: var(--orange);
+    font-size: 1.6rem;
+}
+.card-title{
+    font-family:popr, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}
+.card-description{
+    font-family:popr, sans-serif;
+    font-size:12px;
+    font-weight:400;
+}
+#pageNav p{
+    padding: 0 5px 0 5px;
+}
+#pageNav i{
+    padding-top: 3px;
+}
+#pageNav a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+/*end sectionProducts*/
+
+/*begin section recentProducts*/
+h3{
+    font-size: 14px;
+    font-weight: 700;
+}
+#recentProducts .fa-star{
+    margin: 20px 4px;
+    font-size:.6rem;
+}
+
+#recentProducts h2 {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    line-height: 0.1rem;
+}
+.slick-slide {
+    margin-left: 10px;
+    margin-right:10px;
+}
+/*end section recentProducts*/

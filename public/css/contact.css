@@ -1,0 +1,35 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/*begin main*/
+.path-style{
+    font-size: 12px;
+    color: #999999;
+    font-weight: 400;
+}
+h1{
+    font-size: 36px;
+    font-weight: 900;
+}
+h3 i{
+    color:var(--blue);
+}
+#locationIcon{
+    height: 5vmin;
+}
+#location{
+    font-size: 12px;
+    font-weight: 400;
+}
+#emailForm span{
+    color: red;
+}
+iframe{
+    border-radius: 15px;
+    padding: 0;
+}
+/*end main*/

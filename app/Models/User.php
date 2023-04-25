@@ -18,7 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'role_id',
+        'is_active',
+//        'photo_id',
         'email',
         'password',
     ];
@@ -41,4 +45,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* one-to-many */
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id'); // 'role_id' is derived automatically
+    }
+
+    public function isAdmin()
+    {
+        if ($this->role->name == "administrator" && $this->is_active == 1) {
+            return true;
+        }
+        return false;
+    }
 }

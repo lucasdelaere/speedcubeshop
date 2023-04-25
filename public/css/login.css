@@ -1,0 +1,36 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/* begin main */
+#or{
+    top: 50%;
+    left: 50%;
+    padding: 10px 0;
+}
+#or-text{
+    padding: 10px 10px;
+    color: #ccc;
+    border: 1px solid #ccc;
+    min-width: 42px;
+    min-height: 42px;
+    border-radius: 50%;
+}
+#col-left{
+    -ms-flex-preferred-size: calc(50% - 10px);
+    flex-basis: calc(50% - 10px);
+}
+#col-left form{
+    padding-right: 42px;
+}
+#col-right{
+    -ms-flex-preferred-size: calc(50% + 10px);
+    flex-basis: calc(50% + 10px);
+}
+#col-right button:hover{
+    background-color: var(--black);
+}
+/*end main*/

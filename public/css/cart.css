@@ -1,0 +1,28 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+/*begin main*/
+/*begin section bestSellers*/
+#bestSellers .fa-star{
+    margin: 20px 4px;
+    font-size:.6rem;
+}
+.addWishlist{
+    color: var(--orange);
+    font-size: 1.6rem;
+}
+#bestSellers h2 {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    line-height: 0.1rem;
+}
+.slick-slide {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+/*end section bestSellers*/
+/*end main*/
