@@ -2,9 +2,9 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('home')}}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('backend.index')}}">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-comments"></i>
+            <i class="fas fa-fw fa-tachometer-alt"></i>
         </div>
         <div class="sidebar-brand-text mx-3">CMS</div>
     </a>
@@ -15,7 +15,7 @@
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-solid fa-users"></i>
             <span>CRM</span></a>
     </li>
 
@@ -24,6 +24,8 @@
 
 
     <!-- Nav Item - Pages Collapse Menu -->
+    {{--    @if(Auth::user()->isAdmin())--}}
+    {{--    @endif--}}
     @can('admin')
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -34,9 +36,9 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Links:</h6>
-                    <a class="collapse-item" href="{{route('users.index')}}">All users</a>
-                    <a class="collapse-item" href="{{route('users.index2')}}">All users blade component</a>
-                    <a class="collapse-item" href="{{route('users.create')}}">Create user</a>
+                    <a class="collapse-item" href="">All users</a>
+                    <a class="collapse-item" href="">All users blade component</a>
+                    <a class="collapse-item" href="">Create user</a>
                 </div>
             </div>
         </li>
@@ -51,8 +53,8 @@
         <div id="collapsePosts" class="collapse" aria-labelledby="headingPosts" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="{{route('posts.index')}}">All posts</a>
-                <a class="collapse-item" href="{{route('posts.create')}}">Create post</a>
+                <a class="collapse-item" href="">All posts</a>
+                <a class="collapse-item" href="">Create post</a>
             </div>
         </div>
     </li>
@@ -68,7 +70,7 @@
         <div id="collapseCategories" class="collapse" aria-labelledby="headingCategories" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="{{route('categories.index')}}">All categories</a>
+                <a class="collapse-item" href="">All categories</a>
             </div>
         </div>
     </li>
@@ -84,7 +86,7 @@
         <div id="collapseComments" class="collapse" aria-labelledby="headingComments" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="{{route('comments.index')}}">All comments</a>
+                <a class="collapse-item" href="">All comments</a>
             </div>
         </div>
     </li>
@@ -111,8 +113,8 @@
         <div id="collapseProducts" class="collapse" aria-labelledby="headingProducts" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="{{route('products.index')}}">All products</a>
-                <a class="collapse-item" href="{{route('products.create')}}">Create product</a>
+                <a class="collapse-item" href="">All products</a>
+                <a class="collapse-item" href="">Create product</a>
             </div>
         </div>
     </li>
@@ -126,8 +128,8 @@
         <div id="collapseBrands" class="collapse" aria-labelledby="headingBrands" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="{{route('brands.index')}}">All brands</a>
-                <a class="collapse-item" href="{{route('brands.create')}}">Create brand</a>
+                <a class="collapse-item" href="">All brands</a>
+                <a class="collapse-item" href="">Create brand</a>
             </div>
         </div>
     </li>
@@ -141,8 +143,8 @@
         <div id="collapseprcat" class="collapse" aria-labelledby="headingprcat" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="{{route('productcategories.index')}}">All product categories</a>
-                <a class="collapse-item" href="{{route('productcategories.create')}}">Create product category</a>
+                <a class="collapse-item" href="">All product categories</a>
+                <a class="collapse-item" href="">Create product category</a>
             </div>
         </div>
     </li>

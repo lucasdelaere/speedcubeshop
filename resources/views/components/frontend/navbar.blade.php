@@ -28,6 +28,9 @@
                             <li><h6 class="dropdown-header text-center"> {{Auth::user()->first_name}}</h6></li>
                             <li><hr class="dropdown-divider"></hr></li>
                             <li><a class="dropdown-item fs12" href="#">Account</a></li>
+                            @can('backend')
+                            <li><a class="dropdown-item fs12" href="{{route('backend.index')}}">Dashboard</a></li>
+                            @endcan
                             <li><a class="dropdown-item fs12" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="Logout">
                                     Logout
                                 </a></li>

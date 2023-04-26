@@ -59,4 +59,18 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function isVendor()
+    {
+        if ($this->role_id == 3 && $this->is_active == 1) {
+            return true;
+        }
+        return false;
+    }
+
+    public function isAllowedBackend()
+    {
+        return ($this->role_id == 1 || $this->role_id == 3) && $this->is_active == 1;
+
+    }
 }

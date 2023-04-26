@@ -18,7 +18,7 @@ return new class extends Migration
                 ->index()
                 ->constrained()
                 ->unsigned()
-                ->nullable(); //komt uit 1-op-veel relatie
+                ->default(2); //komt uit 1-op-veel relatie
             $table->integer("is_active")->default(0);
             $table->string("first_name");
             $table->string("last_name")->nullable();

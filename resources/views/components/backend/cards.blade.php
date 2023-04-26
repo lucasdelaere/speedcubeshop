@@ -7,7 +7,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Users</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$usersCount}}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$usersCount ?? ''}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -25,7 +25,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Posts</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$postsCount}}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$postsCount ?? ''}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -72,7 +72,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Categories</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$categoriesCount}}</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$categoriesCount ?? ''}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>

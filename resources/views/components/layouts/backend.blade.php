@@ -22,7 +22,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <x-page-heading title="Backend" buttonText="Generate Report" buttonUrl="/custom"></x-page-heading>
+                <x-backend.page-heading title="Backend" buttonText="Generate Report" buttonUrl="/custom"></x-backend.page-heading>
 
                 <!-- Cards -->
                 <x-backend.cards></x-backend.cards>

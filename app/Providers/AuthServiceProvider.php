@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,19 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // policies
+        $this->registerPolicies();
+
+        // gates
+        /* php 7.3 en lager*/
+//        Gate::define("admin", function (User $user) {
+//            return $user->isAdmin();
+//        });
+        /* vanaf php 7.4 en hoger */
+        Gate::define('admin', fn(User $user) => $user->isAdmin());
+
+        Gate::define('vendor', fn(User $user) => $user->isVendor());
+
+        Gate::define('backend', fn(User $user) => $user->isAllowedBackend());
     }
 }

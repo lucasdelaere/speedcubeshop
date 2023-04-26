@@ -20,7 +20,7 @@ Route::get('/', [\App\Http\Controllers\FrontendHomeController::class, "index"]
 
 
 /* BACKEND ROUTES */
-Route::group(["prefix" => "admin", "middleware" => ["auth", "verified"]], function() {
+Route::group(["prefix" => "dashboard", "middleware" => ["auth", "verified", "backend"]], function() {
     Route::get("/", [
         App\Http\Controllers\BackendHomeController::class,
         "index",

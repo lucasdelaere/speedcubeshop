@@ -25,6 +25,11 @@
             <li class="nav-item border-bottom">
                 <a class="nav-link" href="./wishlist.html">Wishlist</a>
             </li>
+            @can('backend')
+            <li class="nav-item border-bottom">
+                <a class="nav-link" href="{{route('backend.index')}}">Dashboard</a>
+            </li>
+            @endcan
         </ul>
         <div class="fs14 fw700 text-center">
             @guest
@@ -36,12 +41,12 @@
             @endif
 
             @else
+                <a href="#" class="text-decoration-none">Account</a>
+                <span class="px-2"> | </span>
                 <a class="text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
-                <span class="px-2"> | </span>
-                <a href="#" class="text-decoration-none">Account</a>
             @endguest
         </div>
     </div>
