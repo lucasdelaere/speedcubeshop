@@ -23,6 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RoleSeeder::class,
             UserSeeder::class,
+            PhotoSeeder::class,
+            BrandSeeder::class,
+            TypeSeeder::class,
+            ProductSeeder::class,
         ]);
         DB::statement("SET FOREIGN_KEY_CHECKS=1;");
     }

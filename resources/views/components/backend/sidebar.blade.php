@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-fw fa-tachometer-alt"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">CMS</div>
+        <div class="sidebar-brand-text mx-3">Dashboard</div>
     </a>
 
     <!-- Divider -->
@@ -36,28 +36,12 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Links:</h6>
-                    <a class="collapse-item" href="">All users</a>
-                    <a class="collapse-item" href="">All users blade component</a>
-                    <a class="collapse-item" href="">Create user</a>
+                    <a class="collapse-item" href="{{route('users.index')}}">All users</a>
+                    <a class="collapse-item" href="{{route('users.create')}}">Create user</a>
                 </div>
             </div>
         </li>
     @endcan
-
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosts"
-           aria-expanded="true" aria-controls="collapsePosts">
-            <i class="fas fa-blog"></i>
-            <span>Posts</span>
-        </a>
-        <div id="collapsePosts" class="collapse" aria-labelledby="headingPosts" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="">All posts</a>
-                <a class="collapse-item" href="">Create post</a>
-            </div>
-        </div>
-    </li>
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategories"
@@ -65,12 +49,12 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-check" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
             </svg>
-            <span>Categories</span>
+            <span>Orders</span>
         </a>
         <div id="collapseCategories" class="collapse" aria-labelledby="headingCategories" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="">All categories</a>
+                <a class="collapse-item" href="">All orders</a>
             </div>
         </div>
     </li>
@@ -98,7 +82,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="index.html">
             <i class="fas fa-shopping-bag"></i>
-            <span>E-COMMERCE</span></a>
+            <span>CMS</span></a>
     </li>
 
     <!-- Divider -->
@@ -113,8 +97,8 @@
         <div id="collapseProducts" class="collapse" aria-labelledby="headingProducts" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="">All products</a>
-                <a class="collapse-item" href="">Create product</a>
+                <a class="collapse-item" href="{{ route('products.index') }}">All products</a>
+                <a class="collapse-item" href="{{ route('products.create') }}">Create product</a>
             </div>
         </div>
     </li>
@@ -128,8 +112,8 @@
         <div id="collapseBrands" class="collapse" aria-labelledby="headingBrands" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="">All brands</a>
-                <a class="collapse-item" href="">Create brand</a>
+                <a class="collapse-item" href="{{ route('brands.index') }}">All brands</a>
+                <a class="collapse-item" href={{ route('brands.create') }}"">Create brand</a>
             </div>
         </div>
     </li>

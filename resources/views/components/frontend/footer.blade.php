@@ -160,6 +160,7 @@
 <script type="text/javascript" src="{{asset('js/jquery-migrate.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('css/slick/slick.min.js')}}"></script>
 <script src="https://kit.fontawesome.com/3706289f39.js" crossorigin="anonymous"></script>
+@livewireScripts
 <!-- page-specific scripts -->
 {{ $slot }}
 </body>

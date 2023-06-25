@@ -14,6 +14,9 @@ let sliderMin = document.getElementById("sliderMin")
 let sliderMax = document.getElementById("sliderMax")
 
 slider.noUiSlider.on('update', function(values, handle) {
+
+    Livewire.emit('sliderUpdated', values)
+
     if (handle) { //if handle !== 0
         sliderMax.innerHTML = '&euro; ' + values[handle];
     } else {
@@ -69,6 +72,7 @@ var myRating = raterJs( {
     starSize: 32,
     element:document.querySelector("#rater"),
     rateCallback:function rateCallback(rating, done) {
+        Livewire.emit('setRating', rating)
         this.setRating(rating);
         done();
     }

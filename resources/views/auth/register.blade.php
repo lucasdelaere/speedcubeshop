@@ -1,5 +1,5 @@
 <x-layouts.frontend>
-    <x-slot name="title">register</x-slot>
+    <x-slot name="title">Register</x-slot>
 
     <!-- begin main -->
     <main class="container pb-5">
@@ -10,7 +10,7 @@
         <hr class="text-secondary">
         <form class="col-12 col-md-6 py-3" method="POST" action="{{ route('register') }}">
             @csrf
-
+{{--            @include('includes.form_error')--}}
             <p class="fw400 fs12">Create an account for faster checkout and to manage your orders</p>
             <div class="mb-3">
                 <label for="first_name" class="mb-2 fw500 fs12">First Name <span class="text-danger">&ast;</span></label>

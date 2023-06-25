@@ -95,7 +95,6 @@ h1{
 /*begin sectionProducts*/
 .productStar{
     margin: 20px 4px;
-    color:var(--yellow);
     font-size:.6rem;
 }
 .addWishlist{

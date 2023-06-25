@@ -25,7 +25,7 @@
                         </a>
                         <!-- Dropdown menu -->
                         <ul class="dropdown-menu" aria-labelledby="accountDropdown">
-                            <li><h6 class="dropdown-header text-center"> {{Auth::user()->first_name}}</h6></li>
+                            <li><h6 class="dropdown-header text-center">Welcome,  <span class="fw-bold">{{Auth::user()->first_name}}</span>.</h6></li>
                             <li><hr class="dropdown-divider"></hr></li>
                             <li><a class="dropdown-item fs12" href="#">Account</a></li>
                             @can('backend')
@@ -46,9 +46,9 @@
         </div>
         <div class="row align-items-center justify-content-center">
             <ul class="navUl justify-content-center d-none d-lg-flex w-50">
-                <li><a href="./index.html" class="hover-underline-animation">Home</a></li>
-                <li><a href="./shop.html" class="hover-underline-animation">Shop</a></li>
-                <li><a href="tutorials.html" class="hover-underline-animation">Tutorials</a></li>
+                <li><a href="{{ route('frontend.index') }}" class="hover-underline-animation">Home</a></li>
+                <li><a href="{{ route('shop') }}" class="hover-underline-animation">Shop</a></li>
+                <li><a href="{{ route('tutorials') }}" class="hover-underline-animation">Tutorials</a></li>
                 <li><a href="./contact.html" class="hover-underline-animation">Contact</a></li>
             </ul>
         </div>

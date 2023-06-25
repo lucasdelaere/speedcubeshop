@@ -14,10 +14,10 @@
                 <a class="nav-link active" aria-current="page" href="{{ route('frontend.index') }}">Home</a>
             </li>
             <li class="nav-item border-bottom">
-                <a class="nav-link" href="./shop.html">Shop</a>
+                <a class="nav-link" href="{{route('shop')}}">Shop</a>
             </li>
             <li class="nav-item border-bottom">
-                <a class="nav-link" href="tutorials.html">Tutorials</a>
+                <a class="nav-link" href="{{route('tutorials')}}">Tutorials</a>
             </li>
             <li class="nav-item border-bottom">
                 <a class="nav-link" href="./contact.html">Contact</a>

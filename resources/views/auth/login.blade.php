@@ -1,5 +1,5 @@
 <x-layouts.frontend>
-    <x-slot:title>login</x-slot:title>
+    <x-slot:title>Login</x-slot:title>
     <x-slot name="links">
         <link rel="stylesheet" href="{{asset('css/login.css')}}">
     </x-slot>
@@ -15,6 +15,7 @@
             <!-- left column -->
             <div id="col-left">
                 <div class="bg-light text-center py-3 mb-5 fw900 fs14">RETURNING CUSTOMER</div>
+                <!-- this route is the laravel/ui login route -->
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
 

@@ -1,5 +1,5 @@
 <x-backend.head>
-
+    <x-slot name="title">{{ $title ?? ''  }}</x-slot>
 </x-backend.head>
 
 <!-- Page Wrapper -->
@@ -22,11 +22,12 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <x-backend.page-heading title="Backend" buttonText="Generate Report" buttonUrl="/custom"></x-backend.page-heading>
+                <x-backend.page-heading title="Backend" buttonText="Webshop" buttonUrl="/"></x-backend.page-heading>
 
                 <!-- Cards -->
                 <x-backend.cards></x-backend.cards>
                 <!-- Content -->
+                <h1>{{ $title ?? '' }}</h1>
                 {{ $slot }}
 
             </div>

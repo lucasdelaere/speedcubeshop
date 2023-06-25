@@ -70,7 +70,9 @@ class RegisterController extends Controller
         $role = Role::where("name", "customer")->first();
 
         return User::create([
-            'name' => $data['last_name'] ? $data['first_name'] . ' ' . $data['last_name'] : $data['first_name'],
+            /*'name' => $data['last_name'] ? $data['first_name'] . ' ' . $data['last_name'] : $data['first_name'],*/
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             "is_active" => 1,
             "role_id" => $role->id,
