@@ -15,6 +15,11 @@ class FilterProducts extends Component
     protected $paginationTheme = "bootstrap";
     public $brands;
     public $types;
+    public $itemsPerPage;
+    public $sortFieldAndOrder;
+    public $sortField;
+    public $sortOrder;
+    public $columns = 2;
 
     // filters
     public $selectedBrands = [];
@@ -25,7 +30,7 @@ class FilterProducts extends Component
 
     protected $listeners = ['sliderUpdated' => 'setPrice', 'setRating'];
     // I put names instead of id's in selectedBrands/Types so they would appear as names in the querystring. This complicates the query slightly.
-    protected $queryString = ['selectedBrands' => ['except' => '', 'as' => 'brand'], 'selectedTypes' => ['except' => '', 'as' => 'type'], 'selectedRating' => ['except' => 0,'as' => 'rating'], 'minPrice' => ['except' => 0, 'as' => 'min-price'], 'maxPrice' => ['except' => 100, 'as' => 'max-price']];
+    protected $queryString = ['selectedBrands' => ['except' => '', 'as' => 'brand'], 'selectedTypes' => ['except' => '', 'as' => 'type'], 'selectedRating' => ['except' => 0,'as' => 'rating'], 'minPrice' => ['except' => 0, 'as' => 'min-price'], 'maxPrice' => ['except' => 100, 'as' => 'max-price'], 'itemsPerPage' => ['as' => 'per-page'], 'sortField' => ['as' => 'sort-field'], 'sortOrder' => ['as' => 'order']];
     // declaring $queryString will put the query parameters in the URL
 
     public function mount($brands, $types)
@@ -34,6 +39,12 @@ class FilterProducts extends Component
         $this->types = $types;
     }
 
+    public function updatedSortFieldAndOrder()
+    {
+        $this->sortField = substr($this->sortFieldAndOrder, 0, -1);
+        $this->sortOrder = substr($this->sortFieldAndOrder, -1) ? 'asc' : 'desc';
+        $this->resetPage();
+    }
     private function getBrandIds($brandNames)
     {
         $brands = Brand::whereIn('name', $brandNames)->pluck('id');
@@ -63,7 +74,14 @@ class FilterProducts extends Component
     {
         $this->resetPage();
     }
-
+    public function updatedItemsPerPage()
+    {
+        $this->resetPage();
+    }
+    public function updatedColumns()
+    {
+        $this->resetPage();
+    }
     public function render()
     {
 
@@ -81,7 +99,13 @@ class FilterProducts extends Component
                     ->where('rating', '>=', $this->selectedRating)
                     ->with(["photo", "brand", "type"])
                     ->withTrashed()
-                    ->paginate(12)
+                    ->when($this->sortField, function ($query) {
+                        $query->orderBy(
+                            $this->sortField,
+                            $this->sortOrder
+                        );
+                    })
+                    ->paginate($this->itemsPerPage)
         ]);
     }
 }

@@ -35,7 +35,7 @@
                         </h2>
                         <div id="collapseRating" class="accordion-collapse collapse show" aria-labelledby="headingRating" data-bs-parent="#accordionRating">
                             <div class="accordion-body">
-                                <div id="rater" class="star-rating pb-3" style="width: 160px; height: 32px; background-size: 32px;" wire:click="setRating($event.target.getAttribute('data-rating'))">
+                                <div id="rater" class="star-rating pb-3" style="width: 160px; height: 32px; background-size: 32px;">
                                 </div>
                             </div>
                         </div>
@@ -104,21 +104,21 @@
                     </div>
                     <div class="d-flex">
                         <p class="optionsBar-text align-self-center me-2 d-none d-md-block">Sort by</p>
-                        <select name="sortBy" id="sortBy">
+                        <select wire:model="sortFieldAndOrder" name="sortBy" id="sortBy">
                             <!-- eventueel nog best selling option -->
-                            <option value="">Rating</option>
-                            <option value="">Alphabetically, A-Z</option>
-                            <option value="">Alphabetically, Z-A</option>
-                            <option value="">Price, low to high</option>
-                            <option value="">Price, high to low</option>
-                            <option value="">Date, old to new</option>
-                            <option value="">Date, new to old</option>
+                            <option value="rating0">Rating, high to low</option>
+                            <option value="rating1">Rating, low to high</option>
+                            <option value="name1">Alphabetically, A-Z</option>
+                            <option value="name0">Alphabetically, Z-A</option>
+                            <option value="price1">Price, low to high</option>
+                            <option value="price0">Price, high to low</option>
+                            <option value="updated_at1">Date, old to new</option>
+                            <option value="updated_at0">Date, new to old</option>
                         </select>
                     </div>
                     <div class="d-none d-lg-flex">
                         <p class="optionsBar-text align-self-center me-2">Items per page</p>
-                        <select name="itemsPerPage" id="itemsPerPage">
-                            <!-- eventueel nog best selling option -->
+                        <select wire:model="itemsPerPage" name="itemsPerPage" id="itemsPerPage">
                             <option value="12">12</option>
                             <option value="16">16</option>
                             <option value="20">20</option>
@@ -129,13 +129,13 @@
                         <p class="optionsBar-text align-self-center me-2 d-none d-md-block">View as</p>
                         <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                            <input wire:model="columns" value="1" type="radio" class="btn-check" id="btnradio1">
                             <label class="btn btn-outline-secondary" for="btnradio1"><i class="fa-solid fa-grip-lines"></i></label>
 
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <input wire:model="columns" value="2" type="radio" class="btn-check" id="btnradio2" checked>
                             <label class="btn btn-outline-secondary" for="btnradio2"><i class="fa-solid fa-table-cells-large"></i></label>
 
-                            <input type="radio" class="btn-check d-none d-md-block" name="btnradio" id="btnradio3" autocomplete="off">
+                            <input wire:model="columns" value="3" type="radio" class="btn-check d-none d-md-block" id="btnradio3">
                             <label class="btn btn-outline-secondary d-none d-md-block" for="btnradio3"><i class="fa-solid fa-table-cells"></i></label>
 
                         </div>
@@ -146,16 +146,16 @@
             <!-- begin sectionProducts -->
             <section id="sectionProducts">
                 <!-- nu worden producten onder elkaar weergegeven op mobile en in een grid vanaf medium, later moet alles mogelijk zijn op elke resolutie met de 'View as'-knoppen -->
-                <div id="products" class="row row-cols-1 row-cols-md-3 g-3 mb-5">
-                    @foreach($products as $product)
+                <div id="products" class="row row-cols-{{$columns}} g-3 mb-5">
+                    @forelse($products as $product)
                         <div>
                             <article class="card col bg-light p-0">
                                 <div class="container-fluid">
-                                    <div class="row flex-md-none">
-                                        <a href="{{ route('products.showFrontend', $product) }}" class="col-4 col-md-12 p-0">
+                                    <div class="row @if($columns > 1) flex-none @endif">
+                                        <a href="{{ route('products.showFrontend', $product) }}" class="@if($columns == 1)col-4 @else col-12 @endif p-0">
                                             <img src="{{$product->photo_id ? asset($product->photo->file): "http://via.placeholder.com/62x62"}}" alt="productpicture{{$product->id}}" class="card-img-top">
                                         </a>
-                                        <div class="card-body col-8 col-md-12">
+                                        <div class="card-body @if($columns == 1) col-8 @else col-12 @endif">
                                             <h5 class="card-title">{{ $product->name }}</h5>
                                             <div class="d-flex">
                                                 @for( $i = 0; $i < $product->rating; $i++)
@@ -165,7 +165,7 @@
                                                     <i class="fa-solid fa-star productStar"></i>
                                                 @endfor
                                             </div>
-                                            <p class="card-description d-md-none">{{ Str::limit($product->description, 120) }}
+                                            <p class="card-description @if($columns > 1)d-none @endif">{{ Str::limit($product->description, 120) }}
                                             </p>
                                             <p class="popeb">&euro; {{ $product->price }}</p>
                                             <div class="d-flex justify-content-between">
@@ -177,23 +177,12 @@
                                 </div>
                             </article > <!-- of shadow met een :hover in css, of onmouseenter en onmouseleave events via js toevoegen aan elk product -->
                         </div>
-                    @endforeach
+                    @empty
+                        <p class="col-12 fw400 fs20 ms-2">No products found matching these filters.</p>
+                    @endforelse
                 </div>
                 {{ $products->links() }}
-<!--                <div class="d-flex justify-content-between path-style">
-                    <p>Showing: 1-12 of 758</p>
-                    <div id="pageNav" class="d-flex text-decoration-none">
-                        <a href="#" title="Prev"><i class="fa-solid fa-angle-left"></i></a>
-                        <a href="#" title="Prev"><p>PREV</p></a>
-                        <a href="#"><p>1</p></a>
-                        <a href="#"><p>2</p></a>
-                        <a href="#"><p>3</p></a>
-                        <p>...</p>
-                        <a href="#"><p>64</p></a>
-                        <a href="#" title="Next"><p>NEXT</p></a>
-                        <a href="#" title="Next"><i class="fa-solid fa-angle-right"></i></a>
-                    </div>
-                </div>-->
+
             </section>
             <!-- end sectionProducts -->
         </div>

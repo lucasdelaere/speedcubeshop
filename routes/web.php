@@ -23,13 +23,14 @@ Route::get("tutorials", function() {
     return view('tutorials');
 })->name('tutorials');
 
-Route::get("products/{product:slug}", "\App\Http\Controllers\ProductController@showFrontend"
-)->name("products.showFrontend");
-/* SHOP & SHOP FILTER ROUTES */
 Route::get("shop", [
     \App\Http\Controllers\ShopController::class,
     "index",
 ])->name("shop");
+Route::get("products/{product:slug}", "\App\Http\Controllers\ProductController@showFrontend"
+)->name("products.showFrontend");
+
+Route::post("cart/store", [\App\Http\Controllers\CartController::class, 'store'])->name("cart.store");
 
 
 /*************************************************/
