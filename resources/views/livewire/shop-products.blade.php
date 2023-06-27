@@ -5,7 +5,7 @@
             <div class="offcanvas-header">
                 <button type="button" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasFilter" class="btn-close ms-auto"></button>
             </div>
-            <form>
+
                 <!-- price range -->
                 <div class="accordion accordion-flush accordionShop">
                     <div class="accordion-item" id="accordionPrice">
@@ -88,15 +88,14 @@
                         </div>
                     </div>
                 </div>
-            </form>
         </div>
         <!-- end offcanvas -->
         <div class="col-12 col-xl-9">
             <header>
-                <h1 class="text-center text-xl-start fw700">PUZZLES</h1>
+                <h1 class="text-center text-xl-start fw700 mb-5">PUZZLES</h1>
             </header>
             <!-- begin optionsBar -->
-            <section id="optionsBar" class="container bg-light py-2 mb-5 mt-5 mt-xl-3">
+            <section id="optionsBar" class="container bg-light py-2 mb-5 mt-xl-3">
                 <div class="d-flex justify-content-between">
                     <div id="refineBy" class="d-xl-none d-flex" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilter" aria-controls="offcanvasFilter"> <!-- geen offcanvasFilter vanaf xl -->
                         <i class="bi bi-filter align-self-center"></i>
@@ -169,7 +168,12 @@
                                             </p>
                                             <p class="popeb">&euro; {{ $product->price }}</p>
                                             <div class="d-flex justify-content-between">
-                                                <button class="btn-green">ADD TO CART</button>
+                                                <div>
+                                                    <button wire:click="addToCart({{$product}})" class="btn-green">ADD TO CART</button>
+                                                    @if(session('itemAdded') && session('itemAdded')['id'] == $product->id)
+                                                        <i wire:poll.2000ms class="bi bi-check-circle-fill text-success ms-2"></i>
+                                                    @endif
+                                                </div>
                                                 <a href="#" class="align-self-center"><i class="bi bi-heart addWishlist"></i></a>
                                             </div>
                                         </div>

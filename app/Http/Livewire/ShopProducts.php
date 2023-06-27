@@ -5,10 +5,12 @@ namespace App\Http\Livewire;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Type;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class FilterProducts extends Component
+class ShopProducts extends Component
 {
     use WithPagination;
 
@@ -38,13 +40,21 @@ class FilterProducts extends Component
         $this->brands = $brands;
         $this->types = $types;
     }
-
-    public function updatedSortFieldAndOrder()
+    public function addToCart(Product $product)
     {
-        $this->sortField = substr($this->sortFieldAndOrder, 0, -1);
-        $this->sortOrder = substr($this->sortFieldAndOrder, -1) ? 'asc' : 'desc';
-        $this->resetPage();
+        Cart::add(
+            $product->id,
+            $product->name,
+            1,
+            $product->price,
+            $product->weight,
+            [] // options (stickers/no stickers and lube added/no lube added)
+        );
+
+        $this->emit('cartUpdated');
+        session()->flash('itemAdded', ['id' => $product->id]);
     }
+
     private function getBrandIds($brandNames)
     {
         $brands = Brand::whereIn('name', $brandNames)->pluck('id');
@@ -74,6 +84,12 @@ class FilterProducts extends Component
     {
         $this->resetPage();
     }
+    public function updatedSortFieldAndOrder()
+    {
+        $this->sortField = substr($this->sortFieldAndOrder, 0, -1);
+        $this->sortOrder = substr($this->sortFieldAndOrder, -1) ? 'asc' : 'desc';
+        $this->resetPage();
+    }
     public function updatedItemsPerPage()
     {
         $this->resetPage();
@@ -85,7 +101,7 @@ class FilterProducts extends Component
     public function render()
     {
 
-        return view('livewire.filter-products', [
+        return view('livewire.shop-products', [
             "brands" => $this->brands,
             "types" => $this->types,
             "products" =>

@@ -30,7 +30,11 @@ Route::get("shop", [
 Route::get("products/{product:slug}", "\App\Http\Controllers\ProductController@showFrontend"
 )->name("products.showFrontend");
 
-Route::post("cart/store", [\App\Http\Controllers\CartController::class, 'store'])->name("cart.store");
+Route::get('cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart');
+Route::post("cart/store/{product:id}", [\App\Http\Controllers\CartController::class, 'store'])->name("cart.store");
+
+Route::get('contact');
+Route::get('search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search');
 
 
 /*************************************************/

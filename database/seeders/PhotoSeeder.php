@@ -21,7 +21,7 @@ class PhotoSeeder extends Seeder
         //        ]);
         Storage::disk("public")->deleteDirectory("products");
         Photo::factory()
-            ->count(5)
+            ->count(10)
             ->create();
     }
 }

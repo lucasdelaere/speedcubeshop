@@ -9,7 +9,7 @@
 
     <main class="container">
         <p class="path-style py-3">Home &gt; Shop</p>
-        <livewire:filter-products :brands="$brands" :types="$types"/>
+        <livewire:shop-products :brands="$brands" :types="$types"/>
 
         <!-- begin section recentProducts -->
         <section id="recentProducts" class="py-5 w-100">
