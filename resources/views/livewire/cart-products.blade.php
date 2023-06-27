@@ -61,11 +61,17 @@
         <p class="fw400 fs12"><em>Shipping and discounts calculated at checkout</em></p>
         <hr>
         <div class="d-flex justify-content-between fw900 fs14">
-            <p>Total:</p>
-            <p>&euro; {{ Cart::subtotal() }}</p>
+            <p>Total (incl. tax):</p>
+            <p>&euro; {{ Cart::total() }}</p>
         </div>
         <hr>
-        <a href="information.html" class="text-decoration-none text-white"><button class="btn-green w-100 mb-2">PROCEED TO CHECKOUT</button></a>
+        @if(Cart::content()->count() > 0)
+            <form action="{{route('information')}}" method="GET">
+                @csrf
+                <button class="btn-green w-100 mb-2" type="submit">PROCEED TO CHECKOUT</button>
+            </form>
+
+        @endif
         <a href="{{route('shop')}}" class="text-decoration-none text-white"><button class="btn-black w-100">CONTINUE SHOPPING</button></a>
     </section>
     <!-- end orderSummary -->

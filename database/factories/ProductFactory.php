@@ -32,7 +32,7 @@ class ProductFactory extends Factory
             "name" => $name,
             "slug" => $slug,
             "description" => fake()->paragraph(10, true),
-            "price" => rand(0, 10000) / 100,
+            "price" => fake()->randomFloat(2,  0, 100),
             "size" => rand(50, 80),
             "weight" => rand(50, 100),
             "rating" => rand(0, 5),

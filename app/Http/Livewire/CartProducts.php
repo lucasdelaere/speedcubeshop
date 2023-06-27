@@ -32,10 +32,10 @@ class CartProducts extends Component
         $cartProducts = Cart::content();
         // product model (needed for dependency injection and relations (photo))
         $this->products = Product::whereIn('id', $cartProducts->pluck('id'))->get();
-        // add qty field to each product (needed in view)
+        // fill $quantity array
         $this->products->each(function ($product) use ($cartProducts) {
             $productId = $product->id;
-        $this->quantity[$productId] = $cartProducts->firstWhere('id', $productId)->qty;
+            $this->quantity[$productId] = $cartProducts->firstWhere('id', $productId)->qty;
         });
     }
 

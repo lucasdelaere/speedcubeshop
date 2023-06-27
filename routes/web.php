@@ -36,6 +36,15 @@ Route::post("cart/store/{product:id}", [\App\Http\Controllers\CartController::cl
 Route::get('contact')->name('contact');
 Route::get('search', [\App\Http\Controllers\ProductController::class, 'search'])->name('search');
 
+Route::group(['prefix' => 'checkouts'], function() {
+    Route::get('information', [\App\Http\Controllers\CheckoutController::class, 'information'])->name('information');
+    Route::post('shipping', [\App\Http\Controllers\CheckoutController::class, 'shipping'])->name('shipping');
+    Route::get('shipping', [\App\Http\Controllers\CheckoutController::class, 'shippingGet'])->name('shipping.get');
+    Route::post('/payment', [\App\Http\Controllers\CheckoutController::class, 'payment'])->name('payment');
+
+    Route::post('/success', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('success');
+    Route::post('/cancel', [\App\Http\Controllers\CheckoutController::class, 'cancel'])->name('cancel');
+});
 
 /*************************************************/
 /* BACKEND ROUTES */
