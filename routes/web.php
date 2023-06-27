@@ -33,8 +33,8 @@ Route::get("products/{product:slug}", "\App\Http\Controllers\ProductController@s
 Route::get('cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart');
 Route::post("cart/store/{product:id}", [\App\Http\Controllers\CartController::class, 'store'])->name("cart.store");
 
-Route::get('contact');
-Route::get('search', [\App\Http\Controllers\SearchController::class, 'index'])->name('search');
+Route::get('contact')->name('contact');
+Route::get('search', [\App\Http\Controllers\ProductController::class, 'search'])->name('search');
 
 
 /*************************************************/

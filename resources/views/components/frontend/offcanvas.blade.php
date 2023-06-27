@@ -1,14 +1,15 @@
 <!-- begin offcanvas -->
 <div class="offcanvas offcanvas-start overflow-auto" data-bs-scroll="true" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
     <div class="offcanvas-header">
-        <img src="images/index/SCS-logo.png" alt="Logo" class="img-fluid">
+        <img src="{{asset('images/index/SCS-logo.png')}}" alt="Logo" class="img-fluid">
         <button type="button" data-bs-dismiss="offcanvas" class="closeOffcanvas">&times;</button>
     </div>
     <div class="offcanvas-body p-0">
-        <div class="input-group w-100" id="offcanvasSearch" role="search">
-            <input type="text" class="form-control popr fs14 fw700" placeholder="Search" aria-label="Search" aria-describedby="Search-bar">
+        <form action="{{route('search')}}" method="GET" class="input-group w-100" id="offcanvasSearch" role="search">
+            @csrf
+            <input type="text" class="form-control popr fs14 fw700 rounded-start" placeholder="Search" aria-label="Search" aria-describedby="Search-bar" name="search" minlength="1" required>
             <button class="btn btn-outline-secondary" type="button" id="offcanvasSearch-button"><i class="bi bi-search"></i></button>
-        </div>
+        </form>
         <ul class="navbar-nav flex-grow-1 mb-4">
             <li class="nav-item border-bottom">
                 <a class="nav-link active" aria-current="page" href="{{ route('frontend.index') }}">Home</a>
@@ -20,7 +21,7 @@
                 <a class="nav-link" href="{{route('tutorials')}}">Tutorials</a>
             </li>
             <li class="nav-item border-bottom">
-                <a class="nav-link" href="./contact.html">Contact</a>
+                <a class="nav-link" href="{{route('contact')}}">Contact</a>
             </li>
             <li class="nav-item border-bottom">
                 <a class="nav-link" href="./wishlist.html">Wishlist</a>

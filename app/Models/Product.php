@@ -25,4 +25,14 @@ class Product extends Model
     {
         return $this->belongsTo(Photo::class);
     }
+    public function scopeSearchProducts($query, $searchTerm = null)
+    {
+        if ($searchTerm) {
+            $query->where('name', 'like', '%' . $searchTerm . '%')
+                ->orWhereRelation('brand', 'name', 'like', '%' . $searchTerm . '%')
+                ->orWhereRelation('type', 'name', 'like', '%' . $searchTerm . '%');
+        }
+        // return all products when search field is empty
+        return $query;
+    }
 }
