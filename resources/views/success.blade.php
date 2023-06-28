@@ -108,7 +108,7 @@
                 <p class="text-center">Thank you for your order, <span class="font-weight-bold">{{$customer->name}}</span>.<br> Click 'OK' to return to website</p>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+                <a href="{{route('frontend.index')}}" class="w-100 text-decoration-none"><button class="btn btn-success btn-block">OK</button></a>
             </div>
         </div>
     </div>

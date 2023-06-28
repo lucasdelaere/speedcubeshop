@@ -13,7 +13,7 @@
             <form action="{{route('search')}}" method="GET" class="input-group col-4 col-lg-8 w-50 d-none d-lg-flex mx-4">
                 @csrf
                 <input type="text" class="form-control popr fw700 rounded-start" placeholder="Search" aria-label="Search" aria-describedby="Search-bar" name="search" minlength="1" required>
-                <button class="navSearch-button btn btn-outline-secondary" type="button"><i class="bi bi-search"></i></button>
+                <button class="navSearch-button btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
             </form>
             <div class="col-4 col-lg-2 d-flex gap-2 gap-md-3 justify-content-center align-content-center navIcons">
                 @guest

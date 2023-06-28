@@ -19,9 +19,9 @@ return new class extends Migration
             $table
                 ->foreignId("user_id")
                 ->index()
-                ->constrained()
+                ->nullable()
                 ->unsigned()
-                ->nullable();
+                ->constrained();
                 // using softdeletes on user, so will need to use event/listener instead of ->cascadeOnDelete()
             $table->string('address');
             $table->integer('postal_code');

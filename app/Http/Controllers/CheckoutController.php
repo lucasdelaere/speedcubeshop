@@ -154,6 +154,8 @@ class CheckoutController extends Controller
         if (Auth::user())
         {
             $order->user_id = Auth::id();
+        } else {
+            $order->user_id = null;
         }
         $order->save();
 
@@ -174,9 +176,9 @@ class CheckoutController extends Controller
             $customer = \Stripe\Customer::retrieve($session->customer);
 
             $order = Order::where('session_id', $session->id)->first();
-            if (!$order) {
-                throw new NotFoundHttpException();
-            }
+//            if (!$order || ($order->status === 'paid')) {
+//                throw new NotFoundHttpException();
+//            }
             if ($order && $order->status === 'unpaid') {
                 $order->status = 'paid';
                 $order->save();
@@ -229,6 +231,9 @@ class CheckoutController extends Controller
                 $session = $event->data->object;
                 $sessionId = $session->id;
                 $order = Order::where('session_id', $session->id)->first();
+//                if (!$order || ($order->status === 'paid')) {
+//                    throw new NotFoundHttpException();
+//                }
                 if ($order && $order->status === 'unpaid') {
                     // when page is reloaded (order is already paid)
                     $order->status = 'paid';

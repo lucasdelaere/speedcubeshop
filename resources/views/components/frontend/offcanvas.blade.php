@@ -8,7 +8,7 @@
         <form action="{{route('search')}}" method="GET" class="input-group w-100" id="offcanvasSearch" role="search">
             @csrf
             <input type="text" class="form-control popr fs14 fw700 rounded-start" placeholder="Search" aria-label="Search" aria-describedby="Search-bar" name="search" minlength="1" required>
-            <button class="btn btn-outline-secondary" type="button" id="offcanvasSearch-button"><i class="bi bi-search"></i></button>
+            <button class="btn btn-outline-secondary" type="submit" id="offcanvasSearch-button"><i class="bi bi-search"></i></button>
         </form>
         <ul class="navbar-nav flex-grow-1 mb-4">
             <li class="nav-item border-bottom">
