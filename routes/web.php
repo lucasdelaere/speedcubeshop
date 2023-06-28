@@ -33,7 +33,9 @@ Route::get("products/{product:slug}", "\App\Http\Controllers\ProductController@s
 Route::get('cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart');
 Route::post("cart/store/{product:id}", [\App\Http\Controllers\CartController::class, 'store'])->name("cart.store");
 
-Route::get('contact')->name('contact');
+Route::get('contact', [\App\Http\Controllers\ContactController::class, 'create'])->name('contact');
+Route::post('contact', [\App\Http\Controllers\ContactController::class, 'store']);
+
 Route::get('search', [\App\Http\Controllers\ProductController::class, 'search'])->name('search');
 
 Route::group(['prefix' => 'checkouts'], function() {

@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function create()
     {
-        return view("contactformulier"); //contactformulier
+        return view("contact");
     }
 
     public function store(Request $request)
@@ -19,12 +19,17 @@ class ContactController extends Controller
         request()->validate([
             "name" => ["required", "between:2,255"],
             "email" => ["required", "email"],
-            "message" => ["required", 'regex:/^[^<>]*$/'],
+            "message" => ["required", 'regex:/^[^<>]*$/', "min:2"],
+            "subject" => ["required", "filled"]
         ]);
 
         //data versturen
         $data = $request->all(); //wordt verstuurd naar markdown die layout voor email bevat
-        Mail::to(request("email"))->send(new Contact($data));
-        return back()->with("status", "Form received, thank you!");
+        $mail = new Contact($data);
+        $mail->from($data['email']);
+        Mail::to(env("MAIL_FROM_ADDRESS"))
+            ->send($mail);
+        //return redirect('contact');
+        return back()->with("status", "Success! Form received, thank you!");
     }
 }

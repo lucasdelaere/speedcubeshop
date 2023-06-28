@@ -95,7 +95,7 @@
 <body>
 
 <!-- Modal HTML -->
-<div id="myModal" class="modal fade in">
+<div id="myModal" class="modal fade in" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-confirm">
         <div class="modal-content">
             <div class="modal-header">
@@ -104,12 +104,13 @@
                 </div>
                 <h4 class="modal-title w-100">Awesome!</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body pb-0">
                 <p class="text-center">Thank you for your order, <span class="font-weight-bold">{{$customer->name}}</span>.<br> Click 'OK' to return to website</p>
             </div>
-            <div class="modal-footer">
-                <a href="{{route('frontend.index')}}" class="w-100 text-decoration-none"><button class="btn btn-success btn-block">OK</button></a>
+            <div class="modal-footer pt-0">
+                <a href="{{route('frontend.index')}}" class="w-100 text-decoration-none p-0"><button class="btn btn-success btn-block">OK</button></a>
             </div>
+            <p class="text-gray-400 fw400 text-center m-0 pt-2">You will be automatically redirected after 20 seconds</p>
         </div>
     </div>
 </div>
@@ -118,6 +119,10 @@
     $(window).on('load', function() {
         $('#myModal').modal('show');
     });
+
+    setTimeout(function() {
+        window.location.href = "{{route('frontend.index')}}"
+    }, 20000); // 20 sec
 </script>
 </body>
 </html>

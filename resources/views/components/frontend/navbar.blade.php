@@ -50,7 +50,7 @@
                 <li><a href="{{ route('frontend.index') }}" class="hover-underline-animation">Home</a></li>
                 <li><a href="{{ route('shop') }}" class="hover-underline-animation">Shop</a></li>
                 <li><a href="{{ route('tutorials') }}" class="hover-underline-animation">Tutorials</a></li>
-                <li><a href="./contact.html" class="hover-underline-animation">Contact</a></li>
+                <li><a href="{{route('contact')}}" class="hover-underline-animation">Contact</a></li>
             </ul>
         </div>
     </section>
