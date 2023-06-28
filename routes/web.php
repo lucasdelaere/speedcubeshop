@@ -40,11 +40,13 @@ Route::group(['prefix' => 'checkouts'], function() {
     Route::get('information', [\App\Http\Controllers\CheckoutController::class, 'information'])->name('information');
     Route::post('shipping', [\App\Http\Controllers\CheckoutController::class, 'shipping'])->name('shipping');
     Route::get('shipping', [\App\Http\Controllers\CheckoutController::class, 'shippingGet'])->name('shipping.get');
-    Route::post('/payment', [\App\Http\Controllers\CheckoutController::class, 'payment'])->name('payment');
+    Route::post('payment', [\App\Http\Controllers\CheckoutController::class, 'payment'])->name('payment');
 
-    Route::post('/success', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('success');
-    Route::post('/cancel', [\App\Http\Controllers\CheckoutController::class, 'cancel'])->name('cancel');
+    Route::post('checkout', [\App\Http\Controllers\CheckoutController::class, 'checkout'])->name('checkout');
+    Route::get('success', [\App\Http\Controllers\CheckoutController::class, 'success'])->name('success');
+    Route::get('cancel', [\App\Http\Controllers\CheckoutController::class, 'cancel'])->name('cancel');
 });
+Route::post('/webhook',  [\App\Http\Controllers\CheckoutController::class, 'webhook'])->name('webhook');
 
 /*************************************************/
 /* BACKEND ROUTES */

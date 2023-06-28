@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             "is_active" => 1,
             "role_id" => 1,
             "first_name" => "Lucas",
+            "last_name" => "De Laere",
             "email" => "lucas.delaere@hotmail.com",
 //            "photo_id" => 1,
             "password" => bcrypt(12345678),

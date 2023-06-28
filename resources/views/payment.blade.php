@@ -119,12 +119,13 @@
                             <h2 class="text-mixedcase">Payment</h2>
                             <p class="m-0 fs14 fw400">All transactions are secure and encrypted</p>
                         </div>
-                        <form action="">
+                        <form action="{{route('checkout')}}" method="POST">
+                            @csrf
                             <fieldset class="form-group border rounded py-2 px-4 fw400 fs14">
                                 <!-- radio buttons are grouped by 'name' attribute -->
                                 <div class="row py-2">
                                     <div class="form-check">
-                                        <input type="radio" name="paymentMethod" class="row form-check-input"  id="bancontact" aria-controls="multiCollapse1" onclick="toggleCollapse(this)" checked>
+                                        <input type="radio" name="paymentMethod" class="row form-check-input"  id="bancontact" value="bancontact" aria-controls="multiCollapse1" onclick="toggleCollapse(this)" checked>
                                         <label class="form-check-label" for="bancontact"><img src="{{asset('images/checkout/bancontact.png')}}" alt="bancontact"></label>
                                     </div>
                                 </div>
@@ -138,7 +139,7 @@
                                 </div>
                                 <div class="row border-top pb-2 pt-4">
                                     <div class="form-check col-3">
-                                        <input type="radio" name="paymentMethod" class="row form-check-input"  id="creditCard" aria-controls="multiCollapse2" onclick="toggleCollapse(this)">
+                                        <input type="radio" name="paymentMethod" class="row form-check-input"  id="creditCard" value="card" aria-controls="multiCollapse2" onclick="toggleCollapse(this)">
                                         <label class="form-check-label" for="creditCard">Credit card</label>
                                     </div>
                                     <div class="col-9 black fs12 align-items-center d-flex justify-content-end gap-1"><img src="{{asset('images/checkout/visa.svg')}}" alt="visa"><img src="{{asset('images/checkout/mastercard.svg')}}" alt="mastercard"><img src="{{asset('images/checkout/american_express.svg')}}" alt="american express">
@@ -146,6 +147,12 @@
                                 </div>
                                 <div class="row pb-2">
                                     <div class="collapse multi-collapse" id="multiCollapse2">
+                                        <div class="border rounded bg-light text-center">
+                                            <i class="bi bi-credit-card"></i>
+                                            <p>After clicking "Complete order", you will be redirected to Stripe to complete your purchase securely.</p>
+                                        </div>
+                                    </div>
+<!--                                    <div class="collapse multi-collapse" id="multiCollapse2">
                                         <div class="border rounded bg-light text-center px-3">
                                             <div class="form-floating my-3">
                                                 <input type="tel" class="form-control" id="cardNumber" placeholder="Card number" maxlength="19">
@@ -166,11 +173,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                                 <div class="row border-top pb-2 pt-4">
                                     <div class="form-check">
-                                        <input type="radio" name="paymentMethod" class="row form-check-input"  id="PayPal" aria-controls="multiCollapse3" onclick="toggleCollapse(this)">
+                                        <input type="radio" name="paymentMethod" class="row form-check-input"  id="PayPal" aria-controls="multiCollapse3" onclick="toggleCollapse(this)" disabled>
                                         <label class="form-check-label" for="PayPal"><img src="{{asset('images/checkout/paypal.png')}}" alt="paypal"></label>
                                     </div>
                                 </div>
@@ -184,7 +191,7 @@
                                 </div>
                                 <div class="row border-top pb-2 pt-4">
                                     <div class="form-check">
-                                        <input type="radio" name="paymentMethod" class="row form-check-input" id="amazonPay" aria-controls="multiCollapse4" onclick="toggleCollapse(this)">
+                                        <input type="radio" name="paymentMethod" class="row form-check-input" id="amazonPay" aria-controls="multiCollapse4" onclick="toggleCollapse(this)" disabled>
                                         <label class="form-check-label" for="amazonPay"><img src="{{asset('images/checkout/amazonpay.png')}}" alt="amazonpay"></label>
                                     </div>
                                 </div>
@@ -202,7 +209,7 @@
 
                             <div class="d-flex justify-content-between align-items-center mt-3">
                                 <a href="{{route('shipping.get')}}" class="text-decoration-none fw400 fs14"> &lt; Return to shipping</a>
-                                <a href="" type="submit" class="text-decoration-none text-white btn-green p-3 text-center rounded">Complete order</a>
+                                <button type="submit" class="text-decoration-none text-white btn-green p-3 text-center rounded">Complete order</button>
                             </div>
                         </form>
                     </section>
