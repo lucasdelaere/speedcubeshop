@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('backend.index')}}">
             <i class="fas fa-solid fa-users"></i>
             <span>CRM</span></a>
     </li>
@@ -54,12 +54,12 @@
         <div id="collapseCategories" class="collapse" aria-labelledby="headingCategories" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Links:</h6>
-                <a class="collapse-item" href="">All orders</a>
+                <a class="collapse-item" href="{{route('orders')}}">All orders</a>
             </div>
         </div>
     </li>
 
-    <li class="nav-item">
+<!--    <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseComments"
            aria-expanded="true" aria-controls="collapseComments">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left" viewBox="0 0 16 16">
@@ -73,14 +73,14 @@
                 <a class="collapse-item" href="">All comments</a>
             </div>
         </div>
-    </li>
+    </li>-->
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('backend.index')}}">
             <i class="fas fa-shopping-bag"></i>
             <span>CMS</span></a>
     </li>

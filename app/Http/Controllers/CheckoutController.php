@@ -158,7 +158,12 @@ class CheckoutController extends Controller
             $order->user_id = null;
         }
         $order->save();
-
+        // need to save order before attaching/syncing with products, because an order id is needed to do this.
+        $productIds = $cartProducts->pluck('id');
+        foreach ($productIds as $index => $productId) {
+            $quantity = $cartProducts->pluck('qty')[$index];
+            $order->products()->attach($productId, ['quantity' => $quantity]);
+        }
         return redirect($session->url);
     }
     public function success(Request $request)
@@ -176,6 +181,7 @@ class CheckoutController extends Controller
             $customer = \Stripe\Customer::retrieve($session->customer);
 
             $order = Order::where('session_id', $session->id)->first();
+            $order->payment_intent = $session->payment_intent;
             if (!$order || ($order->status === 'paid')) {
                 throw new NotFoundHttpException();
             }
@@ -231,6 +237,7 @@ class CheckoutController extends Controller
                 $session = $event->data->object;
                 $sessionId = $session->id;
                 $order = Order::where('session_id', $session->id)->first();
+                $order->payment_intent = $session->payment_intent;
                 if (!$order || ($order->status === 'paid')) {
                     throw new NotFoundHttpException();
                 }

@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Events\UsersSoftDelete;
 use App\Models\Brand;
-use App\Models\Keyword;
 use App\Models\Photo;
-use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;

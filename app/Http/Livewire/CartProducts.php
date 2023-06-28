@@ -10,6 +10,7 @@ class CartProducts extends Component
 {
     public $products;
     public array $quantity = [];
+    private $oldQuantity;
 
     public function removeFromCart($id)
     {
@@ -17,13 +18,22 @@ class CartProducts extends Component
         Cart::remove($rowId);
         $this->emit('cartUpdated');
     }
+    public function updatingQuantity($value, $productId)
+    {
+        if ($value < 1) {
+            // new value is illegal, retrieve old value
+            $this->oldQuantity = $this->quantity[$productId];
+        }
+    }
     public function updatedQuantity($value, $productId)
     {
-        if ($value >= 1)
-        {
+        if ($value >= 1) {
             $rowId = Cart::content()->firstWhere('id', $productId)->rowId;
             Cart::update($rowId, $value);
             //no 'cartUpdated' emit needed as this method doesn't change the cart count
+        } else {
+            // new value is illegal, so reset quantity to old value
+            $this->quantity[$productId] = $this->oldQuantity;
         }
     }
     public function mount()

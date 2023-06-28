@@ -24,7 +24,7 @@
                 <a class="nav-link" href="{{route('contact')}}">Contact</a>
             </li>
             <li class="nav-item border-bottom">
-                <a class="nav-link" href="./wishlist.html">Wishlist</a>
+                <a class="nav-link" href="">Wishlist</a>
             </li>
             @can('backend')
             <li class="nav-item border-bottom">

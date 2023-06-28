@@ -25,6 +25,10 @@ class Product extends Model
     {
         return $this->belongsTo(Photo::class);
     }
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
+    }
     public function scopeSearchProducts($query, $searchTerm = null)
     {
         if ($searchTerm) {

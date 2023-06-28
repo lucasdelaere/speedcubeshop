@@ -67,6 +67,7 @@ Route::group(["prefix" => "backend", "middleware" => ["auth", "verified", "backe
 
     Route::resource("products",
     \App\Http\Controllers\ProductController::class);
+    Route::get("orders", [\App\Http\Controllers\OrderController::class, 'index'])->name('orders');
 });
 
 /*************************************************/

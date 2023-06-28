@@ -41,7 +41,7 @@
                         </form>
                     </div>
                 @endguest
-                <a href="./wishlist.html" title="Wishlist" class="d-none d-lg-block"><i class="bi bi-heart"></i></a>
+                <a href="" title="Wishlist" class="d-none d-lg-block"><i class="bi bi-heart"></i></a>
                 <livewire:cart-counter>
             </div>
         </div>
