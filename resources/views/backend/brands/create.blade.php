@@ -6,6 +6,7 @@
                     <a href="{{route('brands.index')}}" class="btn btn-primary m-2 rounded-pill">All Brands</a>
                 </div>
             </div>
+    </x-slot>
             <form action="{{action('App\Http\Controllers\BrandController@store')}}" method="POST">
                 @csrf
                 @method('POST')
@@ -25,5 +26,4 @@
                 <button type="submit" class="ml-auto btn btn-dark d-flex justify-content-end me-3">SUBMIT</button>
             </form>
 
-    </x-slot>
 </x-layouts.backend>

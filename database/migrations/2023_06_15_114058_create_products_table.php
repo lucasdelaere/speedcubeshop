@@ -32,8 +32,8 @@ return new class extends Migration
                 ->constrained();
             $table->unsignedTinyInteger('rating')->default(0)->unsigned();
             $table->decimal('price', 6, 2);
-            $table->unsignedInteger('size'); // mm
-            $table->unsignedInteger('weight'); // g
+            $table->unsignedInteger('size')->nullable(); // mm
+            $table->unsignedInteger('weight')->nullable(); // g
             $table->timestamps();
             $table->softDeletes();
         });
